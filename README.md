@@ -85,7 +85,7 @@ The current `games.xml` export contains 3,000 games from `/games`. Each of the 5
 | TMDB movies | TMDB tv shows | IGDB games | Link |
 | --- | --- | --- | --- |
 | `title`, `original_title` | `name`, `original_name` | `name`, `alternative_names` | Same work or franchise |
-| `belongs_to_collection.name` | — | `franchise`, `franchises`, `collections` | Franchise |
+| `belongs_to_collection.name` | - | `franchise`, `franchises`, `collections` | Franchise |
 | `credits.cast.character` | `aggregate_credits.cast.roles.character` | `/characters` (separate endpoint) | Character |
 | `genres` | `genres` | `themes` | Genre / theme |
 | `genres` (Adventure, Music) | `genres` (Action & Adventure) | `genres` (Adventure, Music) | Genre |
@@ -93,3 +93,25 @@ The current `games.xml` export contains 3,000 games from `/games`. Each of the 5
 | `production_companies` | `networks` | `involved_companies` | Company (Nintendo...) |
 | `vote_average`, `vote_count` | `vote_average`, `vote_count` | `total_rating`, `total_rating_count` | Rating comparison |
 | `overview` | `overview` | `summary`, `storyline` | Text similarity |
+
+### Genre mapping
+
+| TMDB genre | IGDB |
+| --- | --- |
+| Horror | theme Horror |
+| Science Fiction, Sci-Fi & Fantasy | theme Science fiction |
+| Fantasy, Sci-Fi & Fantasy | theme Fantasy |
+| Action, Action & Adventure | theme Action |
+| Adventure, Action & Adventure | genre Adventure |
+| Comedy | theme Comedy |
+| Drama | theme Drama |
+| Mystery | theme Mystery |
+| Romance | theme Romance |
+| Thriller | theme Thriller |
+| War, War & Politics | theme Warfare |
+| History | theme Historical |
+| Kids, Family | theme Kids |
+| Documentary | theme Non-fiction |
+| Music | genre Music |
+| Animation, Crime, Western, TV Movie, News, Reality, Soap, Talk | - |
+| - | themes Survival, Stealth, Sandbox, Open world, 4X, Party, Business, Educational |
