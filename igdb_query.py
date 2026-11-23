@@ -5,13 +5,16 @@ import json
 import os
 from pathlib import Path
 import sys
+from time import sleep
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
 
-DEFAULT_QUERY = "fields name,summary,first_release_date,rating,genres.name,platforms.name; limit 10;"
+DEFAULT_QUERY = "fields *,genres.name,platforms.name; sort id asc;"
+DEFAULT_LIMIT = 3000
+PAGE_SIZE = 500
 
 
 def load_credentials():
@@ -42,6 +45,22 @@ def post_json(url, data, headers):
         return json.load(response)
 
 
+def fetch_games(query, headers):
+    queries = [query] if query is not None else [
+        f"{DEFAULT_QUERY} limit {min(PAGE_SIZE, DEFAULT_LIMIT - offset)}; offset {offset};"
+        for offset in range(0, DEFAULT_LIMIT, PAGE_SIZE)
+    ]
+    games = []
+    for index, page_query in enumerate(queries):
+        if index:
+            sleep(0.25)  # IGDB autorise quatre requêtes par seconde.
+        page = post_json("https://api.igdb.com/v4/games", page_query.encode("utf-8"), headers)
+        if not isinstance(page, list):
+            raise ValueError("Réponse IGDB inattendue : une liste de jeux était attendue.")
+        games.extend(page)
+    return games
+
+
 def append_xml(parent, key, value):
     element = ET.SubElement(parent, key)
     if isinstance(value, dict):
@@ -56,7 +75,7 @@ def append_xml(parent, key, value):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--query", default=DEFAULT_QUERY, help="Requête APICalypse IGDB")
+    parser.add_argument("--query", help="Requête APICalypse IGDB (une seule requête)")
     parser.add_argument("--output", type=Path, default=Path("games.xml"), help="Fichier XML de sortie")
     args = parser.parse_args()
     try:
@@ -66,14 +85,11 @@ def main():
             urlencode({**credentials, "grant_type": "client_credentials"}).encode(),
             {"Content-Type": "application/x-www-form-urlencoded"},
         )["access_token"]
-        games = post_json(
-            "https://api.igdb.com/v4/games",
-            args.query.encode("utf-8"),
+        games = fetch_games(
+            args.query,
             {"Client-ID": credentials["client_id"], "Authorization": f"Bearer {token}",
              "Content-Type": "text/plain", "Accept": "application/json"},
         )
-        if not isinstance(games, list):
-            raise ValueError("Réponse IGDB inattendue : une liste de jeux était attendue.")
         root = ET.Element("games")
         for game in games:
             append_xml(root, "game", game)
