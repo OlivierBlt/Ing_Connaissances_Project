@@ -1,6 +1,6 @@
-# Movie recommendation base on video games
+# Movie recommendation based on video games
 
-We want to explore 2 data sources, one for video games, https://api-docs.igdb.com/?kotlin#release-date-status (json format) . The other one for movies is https://www.themoviedb.org/?language=fr-FR with a json format. 
+We want to explore 2 data sources, one for video games, https://api-docs.igdb.com/?kotlin#release-date-status (json format) . The other one for movies is https://www.themoviedb.org with a json format. 
 
 As IGDB is an english database we will call TMDB in english to have the same language.
 
