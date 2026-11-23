@@ -115,3 +115,7 @@ The current `games.xml` export contains 3,000 games from `/games`. Each of the 5
 | Music | genre Music |
 | Animation, Crime, Western, TV Movie, News, Reality, Soap, Talk | - |
 | - | themes Survival, Stealth, Sandbox, Open world, 4X, Party, Business, Educational |
+
+### Schema 
+
+The schema was created with Canva and you can access by this link : https://canva.link/u2lwrfb3x28ui00
