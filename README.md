@@ -6,48 +6,51 @@ As IGDB is an english database we will call TMDB in english to have the same lan
 
 ---
 
-## 1. TMDB 
- 
- We have 3 different call depending on the data, movies, tv show and the genre. For movies and tv show, we keep 1000 popular then the ones based on videos games. ~3000 for tv shows and movies
+## 1. TMDB
 
-### Labels
+We have 3 different calls depending on the data: movies, tv shows and genres. For movies and tv shows, we keep the 1000 most popular (at least 200 votes) plus the ones tagged `based on video game`. ~2800 works in total.
 
-There is a list of labels for the TMDB dataset, we keep everything for the moment then we will filter and keep just what we need.
+### Movie fields
 
+The `movie.json` export contains the fields below, filtered in `fetch_tmdb.py`.
 
-**Movies** :
- 
-- `id`, `title`, `original_title`, `original_language`
-- `release_date`, `runtime`, `status`
-- `overview`, `tagline`
-- `genres` (id, name)
-- `belongs_to_collection` (id, name)
-- `credits.cast` (name, character, order)
-- `credits.crew` (name, job)
-- `keywords.keywords` (id, name)
-- `production_companies`, `production_countries`
-- `vote_average`, `vote_count`, `popularity`
-- `budget`, `revenue`
-- `external_ids` (imdb_id, wikidata_id)
+| Category | Fields |
+| --- | --- |
+| Identification | `id`, `title`, `original_title`, `original_language` |
+| Description | `overview`, `tagline` |
+| Release dates and status | `release_date`, `runtime`, `status` |
+| Classification | `genres` (id, name), `keywords.keywords` (id, name) |
+| Series | `belongs_to_collection` (id, name) |
+| Cast and crew | `credits.cast` (name, character, order), `credits.crew` (name, job) |
+| Companies | `production_companies`, `production_countries` |
+| Ratings and popularity | `vote_average`, `vote_count`, `popularity` |
+| Box office | `budget`, `revenue` |
+| External references | `external_ids` (imdb_id, wikidata_id) |
 
-**Genre** :
- 
-- Movies : Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History, Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller, War, Western
+### Tv show fields
 
-- Tv Show : Action & Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Kids, Mystery, News, Reality, Sci-Fi & Fantasy, Soap, Talk, War & Politics, Western
+The `tv.json` export contains the fields below, filtered in `fetch_tmdb.py`.
 
-**Tv Show** :
- 
-- `id`, `name`, `original_name`, `original_language`, `origin_country`
-- `first_air_date`, `last_air_date`, `status`
-- `number_of_seasons`, `number_of_episodes`
-- `overview`
-- `genres` (id, name)
-- `created_by`, `networks`
-- `aggregate_credits.cast` (name, roles.character, order)
-- `keywords.results` (id, name)
-- `vote_average`, `vote_count`, `popularity`
-- `external_ids` (imdb_id, wikidata_id)
+| Category | Fields |
+| --- | --- |
+| Identification | `id`, `name`, `original_name`, `original_language`, `origin_country` |
+| Description | `overview` |
+| Release dates and status | `first_air_date`, `last_air_date`, `status` |
+| Seasons | `number_of_seasons`, `number_of_episodes` |
+| Classification | `genres` (id, name), `keywords.results` (id, name) |
+| Cast and creators | `aggregate_credits.cast` (name, roles.character, order), `created_by` |
+| Companies | `networks` |
+| Ratings and popularity | `vote_average`, `vote_count`, `popularity` |
+| External references | `external_ids` (imdb_id, wikidata_id) |
+
+### Genres
+
+The `genres_movie.json` and `genres_tv.json` exports contain the genre lists (id, name).
+
+| Type | Genres |
+| --- | --- |
+| Movies | Action, Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Fantasy, History, Horror, Music, Mystery, Romance, Science Fiction, TV Movie, Thriller, War, Western |
+| Tv shows | Action & Adventure, Animation, Comedy, Crime, Documentary, Drama, Family, Kids, Mystery, News, Reality, Sci-Fi & Fantasy, Soap, Talk, War & Politics, Western |
 
 
 ## 2. IGDB
