@@ -8,7 +8,7 @@ As IGDB is an english database we will call TMDB in english to have the same lan
 
 ## 1. TMDB 
  
- We have 3 different call depending on the data, movies, tv show and the genre. For movies and tv show, we keep 1000 popular then the ones based on videos games. ~1000 to 1500
+ We have 3 different call depending on the data, movies, tv show and the genre. For movies and tv show, we keep 1000 popular then the ones based on videos games. ~3000 for tv shows and movies
 
 ### Labels
 
