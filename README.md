@@ -80,3 +80,17 @@ The current `games.xml` export contains 3,000 games from `/games`. Each of the 5
 
 ## 3. Thesaurus
 
+### Field mapping
+
+| TMDB movies | TMDB tv shows | IGDB games | Link |
+| --- | --- | --- | --- |
+| `title`, `original_title` | `name`, `original_name` | `name`, `alternative_names` | Same work or franchise |
+| `belongs_to_collection.name` | — | `franchise`, `franchises`, `collections` | Franchise |
+| `credits.cast.character` | `aggregate_credits.cast.roles.character` | `/characters` (separate endpoint) | Character |
+| `genres` | `genres` | `themes` | Genre / theme |
+| `genres` (Adventure, Music) | `genres` (Action & Adventure) | `genres` (Adventure, Music) | Genre |
+| `keywords.keywords` | `keywords.results` | `keywords` | Motif (zombies, magic...) |
+| `production_companies` | `networks` | `involved_companies` | Company (Nintendo, Capcom...) |
+| `release_date` | `first_air_date` | `first_release_date` | Chronology: game before adaptation |
+| `vote_average`, `vote_count` | `vote_average`, `vote_count` | `total_rating`, `total_rating_count` | Rating comparison |
+| `overview` | `overview` | `summary`, `storyline` | Text similarity |
