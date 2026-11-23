@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='utf-8'?>
+<games>
+  <game>
+    <id>350392</id>
+    <genres>
+      <item>
+        <id>5</id>
+        <name>Shooter</name>
+      </item>
+    </genres>
+    <name>Rival Species</name>
+    <platforms>
+      <item>
+        <id>6</id>
+        <name>PC (Microsoft Windows)</name>
+      </item>
+    </platforms>
+    <summary>In the far distant future of the 40th millennium behind the stars there is only war. Enter the universe of WARHAMMER 40,000 and play a mighty warrior for one out of an ever growing list of rival species. A large PvP team multiplayer mod for Half-Life that plays similary to Battlefield/Battlefront, based on the Game's Workshop property. Eventually Exterminatus, A sequel for the Source Engine would be made</summary>
+  </game>
+  <game>
+    <id>357869</id>
+    <first_release_date>1744156800</first_release_date>
+    <genres>
+      <item>
+        <id>15</id>
+        <name>Strategy</name>
+      </item>
+      <item>
+        <id>32</id>
+        <name>Indie</name>
+      </item>
+    </genres>
+    <name>Bear vs. Wolf Jigsaw Puzzle: Expansion Pack 4</name>
+    <platforms>
+      <item>
+        <id>6</id>
+        <name>PC (Microsoft Windows)</name>
+      </item>
+    </platforms>
+    <summary>Bear vs. Wolf Jigsaw Puzzle - Expansion Pack 4 adds new jigsaw puzzles featuring stunning scenes of powerful bears and cunning wolves. Unlock fresh 30 to 285-piece challenges set in breathtaking wilderness landscapes. Expand your puzzle collection and immerse yourself in nature’s fiercest rivalry!</summary>
+  </game>
+  <game>
+    <id>339266</id>
+    <first_release_date>1692057600</first_release_date>
+    <name>Power Guy World</name>
+    <platforms>
+      <item>
+        <id>19</id>
+        <name>Super Nintendo Entertainment System</name>
+      </item>
+    </platforms>
+    <summary>Power Guy World is a 30 exit SMW romhack created by LucasMegaStriker as a tribute to the Vtuber "Power Guy".</summary>
+  </game>
+  <game>
+    <id>281041</id>
+    <first_release_date>1703376000</first_release_date>
+    <genres>
+      <item>
+        <id>10</id>
+        <name>Racing</name>
+      </item>
+      <item>
+        <id>33</id>
+        <name>Arcade</name>
+      </item>
+    </genres>
+    <name>Battle Santa 64</name>
+    <platforms>
+      <item>
+        <id>4</id>
+        <name>Nintendo 64</name>
+      </item>
+    </platforms>
+    <summary>Play as Santa Claus trying to take back the presents stolen by Bowser, Wario, and Donkey Kong!
+
+You have five minutes to collect as many as you can. They will run away so you will need to chase them down, hit them, and pick up the presents they drop. After five minutes you will see how many you have collected, what your high score is, and can restart by holding A and B simultaneously to try again.</summary>
+  </game>
+  <game>
+    <id>371149</id>
+    <name>The Deal</name>
+    <platforms>
+      <item>
+        <id>6</id>
+        <name>PC (Microsoft Windows)</name>
+      </item>
+    </platforms>
+    <summary>A Doom II WAD.</summary>
+  </game>
+  <game>
+    <id>330684</id>
+    <genres>
+      <item>
+        <id>10</id>
+        <name>Racing</name>
+      </item>
+      <item>
+        <id>33</id>
+        <name>Arcade</name>
+      </item>
+    </genres>
+    <name>Nightmare Kart: The Old Karts</name>
+    <platforms>
+      <item>
+        <id>6</id>
+        <name>PC (Microsoft Windows)</name>
+      </item>
+    </platforms>
+    <summary>An upcoming free expansion to Nightmare Kart with a brand new mini-campaign, racers, karts, tracks, power-ups, and game modes.</summary>
+  </game>
+  <game>
+    <id>378958</id>
+    <first_release_date>1766102400</first_release_date>
+    <name>Hole io: Blossom Edition</name>
+    <platforms>
+      <item>
+        <id>130</id>
+        <name>Nintendo Switch</name>
+      </item>
+    </platforms>
+  </game>
+  <game>
+    <id>416536</id>
+    <first_release_date>1763596800</first_release_date>
+    <name>Enchanted Stories: Pawisoned Kingdom</name>
+    <platforms>
+      <item>
+        <id>6</id>
+        <name>PC (Microsoft Windows)</name>
+      </item>
+      <item>
+        <id>14</id>
+        <name>Mac</name>
+      </item>
+    </platforms>
+  </game>
+  <game>
+    <id>296132</id>
+    <first_release_date>567907200</first_release_date>
+    <genres>
+      <item>
+        <id>4</id>
+        <name>Fighting</name>
+      </item>
+      <item>
+        <id>31</id>
+        <name>Adventure</name>
+      </item>
+    </genres>
+    <name>Andy Capp</name>
+    <platforms>
+      <item>
+        <id>25</id>
+        <name>Amstrad CPC</name>
+      </item>
+    </platforms>
+    <summary>The Amstrad CPC version has different sounds, the UI elements are changed a bit and the game is in general displayed in black and white except for icon highlighting.</summary>
+  </game>
+  <game>
+    <id>114647</id>
+    <first_release_date>1541635200</first_release_date>
+    <genres>
+      <item>
+        <id>8</id>
+        <name>Platform</name>
+      </item>
+    </genres>
+    <name>Bacon Escape 2: Spaced Out!</name>
+    <platforms>
+      <item>
+        <id>39</id>
+        <name>iOS</name>
+      </item>
+    </platforms>
+    <summary>Our favorite little piggy is back in a brand new and exciting adventure. It's time to bring home the bacon again!</summary>
+  </game>
+</games>
