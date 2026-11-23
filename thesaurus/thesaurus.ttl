@@ -1,0 +1,71 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix t:     <http://example.org/thesaurus/> .
+@prefix ex:     <http://example.org/data/> .
+
+#root
+t:scheme a skos:ConceptScheme;
+    skos:prefLabel "root";
+    skos:hasTopConcept t:company, t:gameplay, t:format, t:genre_theme, t:franchise .
+
+#depth 1
+t:company a skos:Concept;
+    skos:prefLabel "Company";
+    skos:topConceptOf t:scheme;
+    skos:inScheme t:scheme
+.
+t:gameplay a skos:Concept;
+    skos:prefLabel "Gameplay";
+    skos:topConceptOf t:scheme;
+    skos:inScheme t:scheme
+.
+
+t:format a skos:Concept;
+    skos:prefLabel "Format";
+    skos:topConceptOf t:scheme;
+    skos:inScheme t:scheme
+.
+
+t:genre_theme a skos:Concept;
+    skos:prefLabel "Genre & Theme";
+    skos:topConceptOf t:scheme;
+    skos:inScheme t:scheme
+.
+
+t:franchise a skos:Concept;
+    skos:prefLabel "Franchise";
+    skos:topConceptOf t:scheme;
+    skos:inScheme t:scheme
+.
+
+#depth 2
+t:action_and_adventure a skos:Concept;
+    skos:prefLabel "Action & Adventure";
+    skos:broader t:genre_theme;
+    skos:inScheme t:scheme.
+t:fiction a skos:Concept;
+    skos:prefLabel "Fiction";
+    skos:broader t:genre_theme;
+    skos:inScheme t:scheme.
+
+t:suspense a skos:Concept;
+    skos:prefLabel "Suspense";
+    skos:broader t:genre_theme;
+    skos:inScheme t:scheme.
+
+t:drama_and_comedy a skos:Concept;
+    skos:prefLabel "Drama & Comedy";
+    skos:broader t:genre_theme;
+    skos:inScheme t:scheme.
+
+t:real_world a skos:Concept;
+    skos:prefLabel "Real World";
+    skos:broader t:genre_theme;
+    skos:inScheme t:scheme.
+t:family_and_music a skos:Concept;
+    skos:prefLabel "Family & Music";
+    skos:broader t:genre_theme;
+    skos:inScheme t:scheme.
