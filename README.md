@@ -57,26 +57,72 @@ The `genres_movie.json` and `genres_tv.json` exports contain the genre lists (id
 
 ### Game fields
 
-The current `games.xml` export contains 3,000 games from `/games`. Each of the 58 fields below appears in at least one game.
+By default, `games.xml` contains the 3,000 highest-ranked games with available details, ordered by the IGDB Visits PopScore. This score measures visits to game pages on IGDB. The table lists the 51 game fields observed in the export and the `characters` field added from `/characters`. [IGDB PopScore documentation](https://api-docs.igdb.com/#popscore)
+
+The default export expands direct relationships such as genres, platforms, and release dates with `field.*`. It excludes covers, artwork, screenshots, videos, logos, and character portraits from games and linked records. The export also omits checksums, executable records, and slugs. [IGDB field expansion documentation](https://api-docs.igdb.com/#expander)
 
 | Category | Fields |
 | --- | --- |
-| Identification | `id`, `name`, `alternative_names`, `slug`, `url` |
+| Identification | `id`, `name`, `alternative_names`, `url` |
 | Description | `summary`, `storyline` |
+| Characters | `characters` |
 | Release dates and status | `first_release_date`, `release_dates`, `game_status`, `status` |
-| Classification | `game_type`, `genres` (id, name), `themes`, `keywords`, `tags` |
-| Platforms and technology | `platforms` (id, name), `game_engines`, `executables` |
+| Classification | `game_type`, `genres`, `themes`, `keywords`, `tags` |
+| Platforms and technology | `platforms`, `game_engines` |
 | Gameplay | `game_modes`, `multiplayer_modes`, `player_perspectives` |
 | Age ratings and localization | `age_ratings`, `language_supports`, `game_localizations` |
 | Companies and series | `involved_companies`, `collections`, `franchise`, `franchises` |
 | Bundles and expansions | `bundles`, `dlcs`, `expansions`, `standalone_expansions`, `expanded_games` |
 | Versions and ports | `parent_game`, `version_parent`, `version_title`, `remakes`, `remasters`, `ports` |
 | Other related games | `forks`, `similar_games` |
-| Media | `cover`, `artworks`, `screenshots`, `videos` |
 | External references | `websites`, `external_games` |
 | User ratings and interest | `rating`, `rating_count`, `hypes` |
 | Critic and combined ratings | `aggregated_rating`, `aggregated_rating_count`, `total_rating`, `total_rating_count` |
-| Record metadata | `created_at`, `updated_at`, `checksum` |
+| Record metadata | `created_at`, `updated_at` |
+
+### Linked record fields
+
+This table lists the fields observed inside linked records in `games.xml`. Field availability varies by record.
+
+| Game field | Fields inside the linked record |
+| --- | --- |
+| `age_ratings` | `id`, `organization`, `rating_category`, `rating_content_descriptions`, `synopsis` |
+| `alternative_names` | `id`, `comment`, `game`, `name` |
+| `collections` | `id`, `as_child_relations`, `as_parent_relations`, `created_at`, `games`, `name`, `type`, `updated_at`, `url` |
+| `external_games` | `id`, `category`, `countries`, `created_at`, `external_game_source`, `game`, `game_release_format`, `media` (legacy release format), `name`, `platform`, `uid`, `updated_at`, `url`, `year` |
+| `franchise`, `franchises` | `id`, `created_at`, `games`, `name`, `updated_at`, `url` |
+| `game_engines` | `id`, `companies`, `created_at`, `description`, `name`, `platforms`, `updated_at`, `url` |
+| `game_localizations` | `id`, `created_at`, `game`, `name`, `region`, `updated_at` |
+| `game_modes`, `genres`, `keywords`, `player_perspectives`, `themes` | `id`, `created_at`, `name`, `updated_at`, `url` |
+| `game_status` | `id`, `created_at`, `status`, `updated_at` |
+| `game_type` | `id`, `created_at`, `type`, `updated_at` |
+| `involved_companies` | `id`, `company`, `created_at`, `developer`, `game`, `porting`, `publisher`, `supporting`, `updated_at` |
+| `language_supports` | `id`, `created_at`, `game`, `language`, `language_support_type`, `updated_at` |
+| `multiplayer_modes` | `id`, `campaigncoop`, `dropin`, `game`, `lancoop`, `offlinecoop`, `offlinecoopmax`, `offlinemax`, `onlinecoop`, `onlinecoopmax`, `onlinemax`, `platform`, `splitscreen` |
+| `platforms` | `id`, `abbreviation`, `alternative_name`, `created_at`, `generation`, `name`, `platform_family`, `platform_type`, `summary`, `updated_at`, `url`, `versions`, `websites` |
+| `release_dates` | `id`, `created_at`, `date`, `date_format`, `game`, `human`, `m`, `platform`, `release_region`, `status`, `updated_at`, `y` |
+| `websites` | `id`, `game`, `trusted`, `type`, `url` |
+
+The following relations contain game records with fields returned by `/games`. [Game fields](#game-fields)
+
+- `bundles`, `dlcs`, `expanded_games`, `expansions`, `standalone_expansions`
+- `parent_game`, `version_parent`, `ports`, `remakes`, `remasters`
+- `forks`, `similar_games`
+
+### Characters
+
+The export matches records from `/characters` to the selected games using each character's `games` IDs. A game gets a `characters` list when IGDB returns a match. The query expands character gender and species records when available. [IGDB character documentation](https://api-docs.igdb.com/#character)
+
+| Category | Character fields |
+| --- | --- |
+| Identification | `id`, `name`, `akas`, `url` |
+| Description | `description`, `character_gender`, `character_species` |
+| Associated games | `games` |
+| Record metadata | `created_at`, `updated_at` |
+
+| Character field | Fields inside the linked record |
+| --- | --- |
+| `character_gender`, `character_species` | `id`, `name`, `created_at`, `updated_at` |
 
 ## 3. Thesaurus
 
